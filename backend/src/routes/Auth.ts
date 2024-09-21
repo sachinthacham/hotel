@@ -3,6 +3,7 @@ import {check, validationResult} from "express-validator";
 import User from "../models/User";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import verifyToken from "../middleware/Auth";
 
 const router = express.Router();
 
@@ -54,8 +55,20 @@ const {email, password} = req.body;
 
     }catch(error){
         console.log(error);
-        res.status(500).json({message:"something went wrong"})
+        res.status(500).json({message:"something went wrong"});
     }
+});
+
+router.get("/validate-token", verifyToken , (req:Request, res:Response) => {
+    res.status(200).send({userId: req.userId});
+});
+
+router.post("/logout", (req:Request, res:Response) => {
+    res.cookie("auth_token", "",{
+        expires:new Date(0),
+
+    });
+    res.send();
 })
 
 export default router;
