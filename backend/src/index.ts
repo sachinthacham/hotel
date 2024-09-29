@@ -7,7 +7,7 @@ import authRoutes from './routes/Auth';
 import cookieParser from 'cookie-parser';
 import {v2 as cloudinary} from 'cloudinary';
 import myHotelRoutes from './routes/My-hotels';
-import hotelRoutes from './routes/Hotels'
+import hotelRoutes from './routes/Hotels';
 
 cloudinary.config({
     cloud_name : process.env.CLOUDINARY_CLOUD_NAME,
@@ -16,7 +16,7 @@ cloudinary.config({
 
 });
 
-mongoose.connect(process.env.MONGODB_CONNECTION_STRING as string)
+mongoose.connect(process.env.MONGODB_CONNECTION_STRING as string);
 
 
 const app = express();

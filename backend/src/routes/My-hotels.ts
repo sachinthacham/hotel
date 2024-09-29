@@ -1,7 +1,8 @@
 import express, {Request,Response} from 'express';
-import multer from 'multer'
-import cloudinary from "cloudinary"
-import Hotel, { HotelType } from '../models/Hotel';
+import multer from 'multer';
+import cloudinary from "cloudinary";
+import Hotel from '../models/Hotel';
+import {HotelType} from '../shared/Types';
 import verifyToken from '../middleware/Auth';
 import {body} from 'express-validator';
 
@@ -106,7 +107,7 @@ async(req:Request, res:Response) => {
         await hotel.save();
         res.status(201).json(hotel)
     }catch(error){
-        res.status(500).json({message:"something went throw"})
+        res.status(500).json({message:"something went throw"});
     }
 }
 )

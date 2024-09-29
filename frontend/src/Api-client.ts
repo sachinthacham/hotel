@@ -1,6 +1,6 @@
 import {RegisterFormData} from "./pages/Register";
 import { SignInFormData } from "./pages/Signin";
-import {HotelType} from '../../backend/src/models/Hotel'
+import {HotelType} from '../../backend/src/shared/Types'
 
 
 //API base url
